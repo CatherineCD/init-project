@@ -1,0 +1,9 @@
+@mixin rhombus($size, $bg-color, $border-color: transparent) {
+  width: $size;
+  height: $size;
+  background-color: $bg-color;
+  transform: rotate(45deg);
+  border-style: solid;
+  border-width: 1px;
+  border-color: $border-color;
+}

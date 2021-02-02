@@ -1,0 +1,13 @@
+@mixin stepper-line($bg-color, $local-mg, $width, $height: 0.2rem) {
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: calc((#{$local-mg} - 0.6rem) * -1);
+    width: $width;
+    height: $height;
+    margin: auto;
+    background-color: $bg-color;
+  }
+}

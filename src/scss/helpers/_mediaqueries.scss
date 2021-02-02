@@ -1,0 +1,127 @@
+// !!! MOBILE FIRST
+
+// breakpoints
+$full: 1900px;
+$laptop: 1365px;
+$pre-laptop: 1280px;
+$tablet: 1024px;
+$tablet-min: 768px;
+$mobile: 375px;
+
+@mixin respond ($breakpoint) {
+  // $breakpoint -  simply a variable that can have several values
+
+  // example: @include respond(full) {}
+  @if $breakpoint==full {
+    @media only screen and (min-width: $full) {
+      @content;
+    }
+  }
+
+  // example: @include respond(pre-laptop) {}
+  @if $breakpoint==pre-laptop {
+    @media only screen and (min-width: $pre-laptop) {
+      @content;
+    }
+  }
+
+  // example: @include respond(laptop) {}
+  @if $breakpoint==laptop {
+    @media only screen and (min-width: $laptop) {
+      @content;
+    }
+  }
+
+  // example: @include respond(tablet) {}
+  @if $breakpoint==tablet {
+    @media only screen and (min-width: $tablet) {
+      @content;
+    }
+  }
+
+  // example: @include respond(tablet-min) {}
+  @if $breakpoint==tablet-min {
+    @media only screen and (min-width: $tablet-min) {
+      @content;
+    }
+  }
+
+  // example: @include respond(mobile) {}
+  @if $breakpoint==mobile {
+    @media only screen and (min-width: $mobile + 1) {
+      @content;
+    }
+  }
+
+  // custom breakpoint
+  // example: @include respond(1150) {}
+  @else {
+    @media only screen and (min-width: $breakpoint + 1) {
+      @content;
+    }
+  }
+}
+
+@mixin respond-max ($breakpoint) {
+  // $breakpoint -  simply a variable that can have several values
+
+  // example: @include respond(full) {}
+  @if $breakpoint==full {
+    @media only screen and (max-width: $full - 1) {
+      @content;
+    }
+  }
+
+  // example: @include respond(laptop) {}
+  @if $breakpoint==laptop {
+    @media only screen and (max-width: $laptop - 1) {
+      @content;
+    }
+  }
+
+  // example: @include respond(pre-laptop) {}
+  @if $breakpoint==pre-laptop {
+    @media only screen and (max-width: $pre-laptop - 1) {
+      @content;
+    }
+  }
+
+  // example: @include respond(tablet) {}
+  @if $breakpoint==tablet {
+    @media only screen and (max-width: $tablet - 1) {
+      @content;
+    }
+  }
+
+  // example: @include respond(tablet-min) {}
+  @if $breakpoint==tablet-min {
+    @media only screen and (max-width: $tablet-min) {
+      @content;
+    }
+  }
+
+  // example: @include respond(mobile) {}
+  @if $breakpoint==mobile {
+    @media only screen and (max-width: $mobile - 1) {
+      @content;
+    }
+  }
+
+  // custom breakpoint
+  // example: @include respond(1150) {}
+  @else {
+    @media only screen and (max-width: $breakpoint - 1) {
+      @content;
+    }
+  }
+}
+
+@mixin respond-between($breakpoint-min, $breakpoint-max) {
+
+  // example: @include respond-between(tablet, pre-laptop) {}
+  @if $breakpoint-min==tablet and $breakpoint-max==pre-laptop {
+    @media only screen and (min-width: $tablet) and (max-width: $pre-laptop - 1) {
+      @content;
+    }
+  }
+}

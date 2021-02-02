@@ -1,0 +1,58 @@
+// Button variants
+@import './../mediaqueries';
+
+@mixin button-variant($color, $background, $border: $background) {
+  $active-background: darken($background, 10%);
+  $active-border: darken($border, 12%);
+
+  @include respond(tablet) {
+    &:not([disabled]) {
+      &:hover {
+        color: $color;
+        background-color: $active-background;
+        border-color: $active-border;
+      }
+    }
+  }
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+}
+
+// Button outline variants
+@mixin button-outline-variant($color, $color-hover: $white, $background-color: $color) {
+  @include respond(tablet) {
+    &:not([disabled]) {
+      &:hover {
+        color: $color-hover;
+        background-color: $background-color;
+        border-color: $color;
+      }
+    }
+  }
+  color: $color;
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid;
+  border-color: $color;
+}
+
+//Button box-shadow variants
+@mixin button-shadow-variant($shadow-color) {
+  box-shadow: 0 2px 8px -3px $shadow-color;
+}
+
+// Button sizes
+@mixin button-x-size($width) {
+  width: 100%;
+  max-width: $width;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+// Button sizes
+@mixin button-y-size($padding-top, $padding-bottom:$padding-top) {
+  padding-top: $padding-top;
+  padding-bottom: $padding-bottom;
+  line-height: 1;
+}

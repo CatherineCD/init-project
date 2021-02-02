@@ -1,0 +1,17 @@
+// functions
+//px to vw
+@function strip-units($pxval) {
+  @return $pxval / ($pxval * 0 + 1);
+}
+
+@function vw($base, $pxval) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+
+  @return ($pxval / $base) * 100vw;
+}

@@ -1,0 +1,7 @@
+@mixin arrow($color, $width: 1.3rem, $height: 1px) {
+  display: inline-block;
+  width: $width;
+  height: $width;
+  border-top: $height solid $color;
+  border-left: $height solid $color;
+}
